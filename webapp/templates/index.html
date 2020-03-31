@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry Generation</title>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    <link href="{{ url_for( 'static',filename='css/material-kit.css') }}" rel="stylesheet" />
+    <style>
+        .back {
+            background: -webkit-linear-gradient(top, rgb(136, 199, 201) 58%, rgb(202, 232, 235) 100%);
+            background: -moz-linear-gradient(top, rgb(136, 199, 201) 58%, rgb(202, 232, 235) 100%);
+            background: -ms-linear-gradient(top, rgb(136, 199, 201) 58%, rgb(202, 232, 235) 100%);
+            background: -o-linear-gradient(top, rgb(136, 199, 201) 58%, rgb(202, 232, 235) 100%);
+            background: linear-gradient(top, rgb(136, 199, 201) 58%, rgb(202, 232, 235) 100%);
+            padding: 3%;
+            height: 94%;
+        }
+
+        .paper {
+            font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
+
+            margin: 0 auto;
+            padding: 6px 5px 4px 42px;
+            position: relative;
+            color: #444;
+            line-height: 20px;
+            border: 1px solid #d2d2d2;
+            background: #fff;
+            background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+            background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+            background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+            background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+            background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+            background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+            -webkit-background-size: 100% 20px;
+            -moz-background-size: 100% 20px;
+            -ms-background-size: 100% 20px;
+            -o-background-size: 100% 20px;
+            background-size: 100% 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        }
+
+        .paper::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            top: 0;
+            left: 30px;
+            bottom: 0;
+            border: 1px solid;
+            border-color: transparent #efe4e4;
+
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-rose">
+        <div class="container" style="justify-content: center;">
+            <div class=" navbar-translate">
+                <a class=" navbar-brand" href="#0"
+                    style="font-size:2em;text-transform: uppercase;font-weight: 700;font-family: 'Baloo Da 2', cursive;">Poetry
+                    Generation</a>
+
+            </div>
+
+        </div>
+    </nav>
+    <div class="container mt-5 " style="align-items: center;">
+        <center>
+            <div class="card-header card-header-primary"
+                style="border-radius: 30px;width: 50%;background-color:rebeccapurple;">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                <div class="nav-tabs-navigation">
+
+
+                    <form class="form-inline" method="POST" action="/"
+                        style="justify-content: space-evenly;display: flex;">
+                        <div class="form-group mb-2">
+
+                            <input type="text" name="line"
+                                style="color: white; background-color:purple;border-radius: 30px;"
+                                class="form-control-plaintext p-1" id="staticEmail2" placeholder="Got a line?">
+                        </div>
+
+                        <button type="submit" class="btn btn-rose mb-2 ml-2"
+                            style="border-radius: 30px;">Generate</button>
+                    </form>
+
+
+                </div>
+            </div>
+            <div class="card-body paper back mt-3 mb-3" style="border-radius: 50px; width: 50%;">
+                <div class="tab-content text-center">
+                    <div class="tab-pane active" id="profile">
+                        {% for i in poem %}
+                        <p>{{i}}</p>
+
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </center>
+    </div>
+</body>
+
+</html>
